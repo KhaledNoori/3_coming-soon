@@ -10,156 +10,247 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body class="dark-bg-body-dark">
 
-    <!-- Switch Dark Mode -->
-    <div class="d-flex align-items-center justify-content-end p-4">
-        <i class="bi bi-brightness-high-fill fs-4 mx-2 lh-0 dark-text-white"></i>
-        <div class="form-check form-switch">
-            
-            <input x-model="darkMode" class="form-check-input darkmode-switch " type="checkbox" role="switch"
-                id="flexSwitchCheckDefault">
-        </div>
-        <i class="bi bi-moon-stars-fill fs-5 mx-2 lh-0 dark-text-white"></i>
+  <!-- Switch Dark Mode -->
+  <div class="d-flex align-items-center justify-content-end p-4">
+    <i class="bi bi-brightness-high-fill fs-4 mx-2 lh-0 dark-text-white"></i>
+    <div class="form-check form-switch">
+
+      <input x-model="darkMode" class="form-check-input darkmode-switch " type="checkbox" role="switch"
+        id="flexSwitchCheckDefault">
     </div>
+    <i class="bi bi-moon-stars-fill fs-5 mx-2 lh-0 dark-text-white"></i>
+  </div>
 
 
-    <!-- header -->
-    <header class=" header text-gray  dark-text-white ">
-      <div class="container">
-        <div class="row  text-center">
-          <h2 class="fw-bold mb-4"><span class="text-primary">لورم ایپسوم</span> <span id="text">متن  ساختگی</span></h2>
-          <p class="lh-lg">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و </p>
+  <!-- header -->
+  <header class=" header text-gray  dark-text-white ">
+    <div class="container">
+      <div class="row  text-center">
+        <h2 class="fw-bold mb-4"><span class="text-primary">لورم ایپسوم</span> <span id="text">متن ساختگی</span></h2>
+        <p class="lh-lg">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+          چاپگرها و </p>
+      </div>
+
+      <div x-data="countdown" class="row countdown justify-content-center my-5">
+        <div>
+          <h3 class="fw-bold" x-text="days"></h3>
+          <h5 class="mb-0">روز</h5>
         </div>
-
-        <div x-data="countdown" class="row countdown justify-content-center my-5">
-          <div>
-            <h3 class="fw-bold" x-text="days"></h3>
-            <h5 class="mb-0">روز</h5>
-          </div>
         <div>
           <h3 class="fw-bold" x-text="hours"></h3>
           <h5 class="mb-0">ساعت</h5>
         </div>
         <div>
-          <h3 class="fw-bold" x-text="minutes" ></h3>
+          <h3 class="fw-bold" x-text="minutes"></h3>
           <h5 class="mb-0">دقیقه</h5>
         </div>
 
         <div>
-          <h3 class="fw-bold" x-text="seconds" ></h3>
+          <h3 class="fw-bold" x-text="seconds"></h3>
           <h5 class="mb-0">ثانیه</h5>
         </div>
 
 
 
 
+      </div>
+
+      <div class="row text-center justify-content-center">
+
+        <div class="col-12">
+          <h6 class="mb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</h6>
         </div>
 
-        <div class="row text-center justify-content-center">
-
-          <div class="col-12">
-            <h6 class="mb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</h6>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class=" input-group mb-3">
+            <input type="text" class="form-control">
+            <button class=" btn btn-primary " type="button">عضویت</button>
           </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class=" input-group mb-3"> 
-              <input type="text" class="form-control">
-              <button class=" btn btn-primary " type="button">عضویت</button>
-            </div>
-          </div>
-          <div class="col-12 social-links mt-5" >
-            <a href="#"> <i class=" lh-0 bi bi-twitter"></i></a>
-            <a href="#"> <i class=" lh-0 bi bi-facebook"></i></a>
-            <a href="#"> <i class=" lh-0 bi bi-instagram"></i></a>
-            <a href="#"> <i class=" lh-0 bi bi-linkedin"></i></a>
-          </div>
-
+        </div>
+        <div class="col-12 social-links mt-5">
+          <a href="#"> <i class=" lh-0 bi bi-twitter"></i></a>
+          <a href="#"> <i class=" lh-0 bi bi-facebook"></i></a>
+          <a href="#"> <i class=" lh-0 bi bi-instagram"></i></a>
+          <a href="#"> <i class=" lh-0 bi bi-linkedin"></i></a>
         </div>
 
       </div>
-    </header>
+
+    </div>
+  </header>
 
 
-    <!-- contact us  -->
+  <!-- contact us  -->
   <section class="contact">
-    <div class="container">
+    <div class="container my-5">
 
-      <div class="row">
+      <div class="row text-center justify-content-center mb-4">
 
-        <h2> ارتباط باما</h2>
-         <hr>
+        <h2 class="fw-bold"> ارتباط باما</h2>
+        <hr>
+      </div>
 
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <div class="card ">
+            <div class=" d-flex align-items-center ">
+              <i class="bi bi-geo-alt "></i>
+              <div class="me-3">
+                <h5 class="fw-bold "> آدرس:</h5>
+                <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم </p>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center my-3">
+              <i class="bi bi-envelope "></i>
+              <div class="me-3">
+                <h5 class="fw-bold "> ایمیل:</h5>
+                <p class="mb-0">info@company.com</p>
+              </div>
+            </div>
+            <div class=" d-flex align-items-center my-1">
+              <i class="bi bi-phone "></i>
+              <div class="me-3">
+                <h5 class="fw-bold "> شماره تماس:</h5>
+                <p class="mb-0">079900000</p>
+              </div>
+            </div>
+            <div id="map" class="mt-4" style="height: 325px;"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 gy-4 ">
+          <form class="card h-100">
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <label class="form-lable fw-bold mb-1" for="name">نام:</label>
+                <input class="form-control" type="text" name="name" id="name" required="">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-lable fw-bold mb-1" for="name">ایمیل:</label>
+                <input class="form-control" type="email" name="email" id="email" required="">
+              </div>
+
+              <div class="mt-3">
+                <label class="form-lable fw-bold  mb-1" for="name">موضوع:</label>
+                <input class="form-control" type="text" name="subject" id="subject" required="">
+              </div>
+              <div class="mt-3">
+                <label class="form-lable fw-bold mb-1" for="name">متن پیام:</label>
+                <textarea class="form-control" name="message" rows="10" required=""></textarea>
+              </div>
+
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary mt-5"> ارسال پیام</button>
+              </div>
+
+          </form>
+        </div>
       </div>
     </div>
+
+
   </section>
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
-        <script src="https://unpkg.com/ityped@1.0.3"></script>
+  <script src="https://unpkg.com/ityped@1.0.3"></script>
 
-        <script>
-            const textElement = document.querySelector('#text');
-            ityped.init(textElement, {  strings: [ ' متن ساختگی با تولید سادگی','متن ساختگی با تولید ', 'متن ساختگی ...' ] });
+  <script>
+    const textElement = document.querySelector('#text');
+    ityped.init(textElement, { strings: [' متن ساختگی با تولید سادگی', 'متن ساختگی با تولید ', 'متن ساختگی ...'] });
 
-        </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('darkMode', () => ({
-                darkMode: true,
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('darkMode', () => ({
+        darkMode: true,
 
-                init() {
-                    this.darkMode = localStorage.theme === 'dark' ? true : false;
+        init() {
+          this.darkMode = localStorage.theme === 'dark' ? true : false;
 
-                    this.$watch('darkMode', (value) => {
-                        localStorage.theme = value ? 'dark' : 'light';
-                    })
-                }
+          this.$watch('darkMode', (value) => {
+            localStorage.theme = value ? 'dark' : 'light';
+          })
+        }
 
-            })),
-               Alpine.data('countdown', () => ({
-                days: '00',
-                hours: '00',
-                minutes: '00',
-                seconds: '00',
+      })),
+        Alpine.data('countdown', () => ({
+          days: '00',
+          hours: '00',
+          minutes: '00',
+          seconds: '00',
 
-                init() {
-                   let endDate = new Date(2044, 1, 12).getTime();
-                   setInterval( () => {
-                       let nowDate = new Date().getTime();
-                        let time = endDate - nowDate;
-                           if(time >= 0 ){
-                      this.days = this.format(Math.floor(time / (1000 * 60 * 60 * 24)));
-                      this.hours =this.format( Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-                      this.minutes =this.format( Math.floor((time % (1000 * 60 * 60 )) / (1000 * 60 )));
-                      this.seconds = this.format(Math.floor((time % (1000 * 60 )) / 1000 ));
+          init() {
+            let endDate = new Date(2044, 1, 12).getTime();
+            setInterval(() => {
+              let nowDate = new Date().getTime();
+              let time = endDate - nowDate;
+              if (time >= 0) {
+                this.days = this.format(Math.floor(time / (1000 * 60 * 60 * 24)));
+                this.hours = this.format(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                this.minutes = this.format(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+                this.seconds = this.format(Math.floor((time % (1000 * 60)) / 1000));
               }
-                   },1000);
+            }, 1000);
 
-                   
-                },
 
-                format(num){
-                  return num < 10 ? '0' + num : num;
-                }
-          
-   
-                 }))
-                
-        })
-      
-    </script>
+          },
+
+          format(num) {
+            return num < 10 ? '0' + num : num;
+          }
+
+
+        }))
+
+    })
+
+  </script>
+
+
+
+  <script>
+    const map = L.map('map').setView([51.505, -0.09], 13);
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const marker = L.marker([51.5, -0.09]).bindPopup("SoftWeb.com").addTo(map).openPopup();
+
+    const circle = L.circle([51.508, -0.11], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(map);
+
+    const polygon = L.polygon([
+      [51.509, -0.08],
+      [51.503, -0.06],
+      [51.51, -0.047]
+    ]).addTo(map);
+
+  </script>
 </body>
 
 </html>
