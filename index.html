@@ -45,12 +45,12 @@
           <h5 class="mb-0">ساعت</h5>
         </div>
         <div>
-          <h3 class="fw-bold" x-text="minutes"></h3>
+          <h3 class="fw-bold" x-text="minutes" ></h3>
           <h5 class="mb-0">دقیقه</h5>
         </div>
 
         <div>
-          <h3 class="fw-bold" x-text="seconds"></h3>
+          <h3 class="fw-bold" x-text="seconds" ></h3>
           <h5 class="mb-0">ثانیه</h5>
         </div>
 
@@ -87,23 +87,38 @@
                     })
                 }
 
-            }))
-        }),
-        Alpine.data('countdown', () => ({
-                days:'00',
-                hours:'00',
-                minutes:'00',
-                seconds:'00',
+            })),
+               Alpine.data('countdown', () => ({
+                days: '00',
+                hours: '00',
+                minutes: '00',
+                seconds: '00',
 
                 init() {
-                    this.darkMode = localStorage.theme === 'dark' ? true : false;
+                   let endDate = new Date(2044, 1, 12).getTime();
+                   setInterval( () => {
+                       let nowDate = new Date().getTime();
+                        let time = endDate - nowDate;
+                           if(time >= 0 ){
+                      this.days = this.format(Math.floor(time / (1000 * 60 * 60 * 24)));
+                      this.hours =this.format( Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                      this.minutes =this.format( Math.floor((time % (1000 * 60 * 60 )) / (1000 * 60 )));
+                      this.seconds = this.format(Math.floor((time % (1000 * 60 )) / 1000 ));
+              }
+                   },1000);
 
-                    this.$watch('darkMode', (value) => {
-                        localStorage.theme = value ? 'dark' : 'light';
-                    })
+                   
+                },
+
+                format(num){
+                  return num < 10 ? '0' + num : num;
                 }
-
-            }))
+          
+   
+                 }))
+                
+        })
+      
     </script>
 </body>
 
